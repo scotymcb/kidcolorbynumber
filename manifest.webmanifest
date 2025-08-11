@@ -1,0 +1,21 @@
+{
+  "name": "KidColorByNumber",
+  "short_name": "ColorByNum",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F0F8FF",
+  "theme_color": "#4A90E2",
+  "description": "A fun color-by-number PWA for kids.",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
