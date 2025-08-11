@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>KidColorByNumber</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#4A90E2">
+</head>
+<body>
+
+    <div id="app-container">
+        <div id="install-bar" class="hidden">
+            <p>Install this app for a better experience!</p>
+            <button id="install-button">Install</button>
+        </div>
+
+        <div id="loading-overlay" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing image...</p>
+        </div>
+
+        <div id="parental-gate" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3>Heads up, Grown-ups!</h3>
+                <p>We're about to search for images on the internet (Unsplash.com). Please confirm you want to proceed.</p>
+                <button id="confirm-search-button">Yes, search online</button>
+                <button id="cancel-search-button">Cancel</button>
+            </div>
+        </div>
+
+        <div id="home-screen" class="page active">
+            <header>
+                <h1>KidColorByNumber 🎨</h1>
+                <button id="settings-button">⚙️</button>
+            </header>
+            <main>
+                <h2>Create a New Project</h2>
+                <div class="action-buttons">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search for an image...">
+                        <button id="search-button">🔍</button>
+                    </div>
+                    <button id="upload-button"><input type="file" id="file-input" accept="image/*" hidden>Upload Photo</button>
+                    <button id="camera-button">Use Camera</button>
+                </div>
+                <h2>Sample Projects</h2>
+                <div id="sample-projects" class="project-grid">
+                    </div>
+                <h2>Your Saved Projects</h2>
+                <div id="saved-projects" class="project-grid">
+                    </div>
+            </main>
+        </div>
+
+        <div id="editor-screen" class="page">
+            <header>
+                <button id="back-to-home-button">← Back</button>
+                <h2 id="project-title">Coloring Page</h2>
+                <div class="editor-tools">
+                    <button id="undo-button" disabled>↩️</button>
+                    <button id="redo-button" disabled>↪️</button>
+                    <button id="export-button">📥</button>
+                </div>
+            </header>
+            <main class="editor-layout">
+                <div id="canvas-container">
+                    </div>
+                <div id="palette-container">
+                    <h3>Colors</h3>
+                    <div id="palette"></div>
+                </div>
+            </main>
+            <div id="export-options" class="hidden">
+                <button id="export-png-button">Download as PNG</button>
+                <button id="export-pdf-button">Download as PDF</button>
+                <button id="export-template-button">Print Blank Template</button>
+            </div>
+        </div>
+
+        <div id="settings-screen" class="page">
+            <header>
+                <button id="back-to-home-from-settings-button">← Back</button>
+                <h1>Settings</h1>
+            </header>
+            <main>
+                <div class="setting-item">
+                    <label for="enable-online-search">Enable Online Search</label>
+                    <input type="checkbox" id="enable-online-search" checked>
+                </div>
+                <div class="setting-item">
+                    <button id="clear-data-button" class="danger">Clear All Saved Data</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/lib/localforage.min.js"></script>
+    <script src="js/lib/jspdf.umd.min.js"></script>
+    <script src="js/lib/imagetracer.min.js"></script>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/image-processor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
