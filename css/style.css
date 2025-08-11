@@ -1,0 +1,202 @@
+/* Basic Setup */
+body {
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    margin: 0;
+    background-color: #F0F8FF; /* AliceBlue */
+    color: #333;
+    overscroll-behavior: contain;
+}
+
+#app-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page Management */
+.page { display: none; flex-direction: column; height: 100%; }
+.page.active { display: flex; }
+.hidden { display: none !important; }
+
+/* Header */
+header {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+header h1, header h2 { margin: 0; font-size: 1.5em; }
+header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Buttons & Inputs */
+button, .button {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 12px;
+    border: none;
+    background-color: #50E3C2; /* Mint green */
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px #1CB093;
+    transition: all 0.1s ease-in-out;
+}
+button:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+button.danger { background-color: #D0021B; box-shadow: 0 4px #9B0012; }
+button:disabled { background-color: #9B9B9B; box-shadow: 0 4px #6e6e6e; cursor: not-allowed; }
+
+.action-buttons { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+.search-container { display: flex; flex-grow: 1; }
+.search-container input {
+    flex-grow: 1;
+    padding: 15px;
+    font-size: 1.2em;
+    border: 2px solid #ccc;
+    border-radius: 12px 0 0 12px;
+}
+.search-container button { border-radius: 0 12px 12px 0; }
+
+/* Project Grids */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+.project-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+.project-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background-color: #eee;
+}
+.project-card p { margin: 10px; font-size: 0.9em; }
+
+/* Editor Screen */
+.editor-layout {
+    display: flex;
+    gap: 20px;
+    height: calc(100% - 40px); /* Full height minus padding */
+}
+#canvas-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: auto;
+}
+#canvas-container svg {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: crosshair;
+}
+#canvas-container svg path {
+    stroke: #333;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    transition: opacity 0.2s;
+}
+#canvas-container svg path:hover {
+    opacity: 0.7;
+}
+
+/* Palette */
+#palette-container {
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+#palette {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.palette-color {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+.palette-color.selected {
+    border-color: #4A90E2;
+    background-color: #e0f0ff;
+}
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+.color-number { font-size: 1.5em; font-weight: bold; }
+
+/* Modals & Overlays */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+}
+#loading-overlay {
+    /* Same as modal but with spinner */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2000;
+}
+.spinner {
+    border: 8px solid #f3f3f3; border-top: 8px solid #4A90E2; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Install Bar */
+#install-bar {
+    background: #FFD700;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
