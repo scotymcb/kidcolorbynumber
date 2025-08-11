@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         maxImageDimension: 512, // px, smaller is faster
         paletteSize: 8,         // 4-12 is a good range
         undoStackLimit: 20,
-        unsplashApiKey: 'YOUR_UNSPLASH_ACCESS_KEY_HERE', // IMPORTANT: See README for security
+        unsplashApiKey: '6UN57EEN9M9f_1K_8CVY8t2FYc4X1DLl1bNZPS7iNGE', // IMPORTANT: See README for security
         imageTraceOptions: {
             numberofcolors: 8, // This should match paletteSize
             ltres: 1,
